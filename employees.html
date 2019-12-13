@@ -2,7 +2,6 @@
 
 	<head>
 		<title>JSON Practice</title>
-		<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script> -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -11,11 +10,39 @@
 
 	<body onload="">
   <h1 class="text-center text-danger"><b>Employee Details</b></h1>
+  <input id="addEmployee" class="btn btn-success btn-block" type="button" value="Add Employee"/>
+  <div class="container">
+    <form id="addForm">
+      <h3 class="text-center text-info"><b>Adding employee details</b></h3>
+      <div class="form-group">
+        <label for="addID">ID:</label>
+        <input type="text" class="form-control" id="addID">
+      </div>
+      <div class="form-group">
+        <label for="addName">Name:</label>
+        <input type="text" class="form-control" id="addName">
+      </div>
+      <div class="form-group">
+        <label for="addType">Job Type:</label>
+        <input type="text" class="form-control" id="addType">
+      </div>
+      <div class="form-group">
+        <label for="addDOB">Date Of Birth:</label>
+        <input type="text" class="form-control" id="addDOB">
+      </div>
+      <div class="form-group">
+        <label for="addExperience">Job Experience:</label>
+        <input type="text" class="form-control" id="addExperience">
+      </div>
+      <div class="form-group">
+        <label for="addDOJ">Date Of Joining:</label>
+        <input type="text" class="form-control" id="addDOJ">
+      </div>
+      <input id="formAddSubmit" type="button" class="btn btn-primary" value="submit"/>
+    </form>
+  </div>
 
 		<table id="displayTable" class="table border">
-      <tr>
-        <input id="addEmployee" class="btn btn-success float-right" type="button" data-toggle='modal' data-target='#addModal' value="Add Employee"/>
-      </tr>
 			<tr class="border bg-primary text-white text-center">
 				<th>ID</th>
 				<th>Name</th>
@@ -35,90 +62,6 @@
       <tr id="6" class="border border-primary text-info text-center" ></tr>
       <tr id="inertRow" class="border border-primary text-info text-center"></tr>
 		</table>
-    <!-- <form id="addForm">
-      <h3 class="text-center text-info"><b>Add emmployee details</b></h3>
-      <table>
-        <tr>
-          <td>ID</td>
-          <td>
-            <input id="addID" type="text" class="form-control">
-          </td>
-        </tr>
-        <tr>
-          <td>Name</td>
-          <td>
-            <input id="addName" type="text" class="form-control">
-          </td>
-        </tr>
-        <tr>
-          <td>Job Type</td>
-          <td>
-            <input id="addType" type="text" class="form-control">
-          </td>
-        </tr>
-        <tr>
-          <td>DOB</td>
-          <td>
-            <input id="addDOB" type="text" class="form-control">
-          </td>
-        </tr>
-        <tr>
-          <td>Experience</td>
-          <td>
-            <input id="addExperience" type="text" class="form-control">
-          </td>
-        </tr>
-        <tr>
-          <td>DOJ</td>
-          <td>
-            <input id="addDOJ" type="text" class="form-control">
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <input id="formAddSubmit" type="button" class="btn btn-primary" value="submit">
-          </td>
-        </tr>
-      </table>
-    </form> -->
-
-  <div class="modal fade" id="addModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <form action="" >
-            <h3 class="text-center text-info"><b>Adding employee details</b></h3>
-            <div class="form-group">
-              <label for="addModalID">ID:</label>
-              <input type="text" class="form-control" id="addModalID">
-            </div>
-            <div class="form-group">
-              <label for="addModalName">Name:</label>
-              <input type="text" class="form-control" id="addModalName">
-            </div>
-            <div class="form-group">
-              <label for="addModalType">Job Type:</label>
-              <input type="text" class="form-control" id="addModalType">
-            </div>
-            <div class="form-group">
-              <label for="addModalDOB">Date Of Birth:</label>
-              <input type="text" class="form-control" id="addModalDOB">
-            </div>
-            <div class="form-group">
-              <label for="addModalExperience">Job Experience:</label>
-              <input type="text" class="form-control" id="addModalExperience">
-            </div>
-            <div class="form-group">
-              <label for="addModalDOJ">Date Of Joining:</label>
-              <input type="text" class="form-control" id="addModalDOJ">
-            </div>
-            <input id="formAddSubmit" type="button" class="btn btn-primary" value="add"/>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
    <div class="modal fade" id="editModal">
     <div class="modal-dialog">
@@ -150,7 +93,7 @@
               <label for="editModalDOJ">Date Of Joining:</label>
               <input type="text" class="form-control" id="editModalDOJ">
             </div>
-            <input type="button" class="btn btn-primary" value="Update"/>
+            <input type="button" class="editSumbit btn btn-primary" value="Update"/>
           </form>
         </div>
       </div>

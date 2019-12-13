@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>jquery dynamic table</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <h1 class="text-center text-danger"><b>Employee Details</b></h1>
+  <input class="addEmployee btn btn-success btn-block" type="button" value="add employee">
+  <form id="addForm">
+    <div class="container" id="addDiv">
+      <h5 class="text-center text-info">Adding Employee Details</h5>
+      <div class="form-group">
+        <label for="addID">ID:</label>
+        <input type="text" class="addID form-control" id="addID">
+      </div>
+      <div class="form-group">
+        <label for="addName">Name:</label>
+        <input type="text" class="addName form-control" id="addName">
+      </div>
+      <div class="form-group">
+        <label for="addType">Job Type:</label>
+        <input type="text" class="addType form-control" id="addType">
+      </div>
+      <div class="form-group">
+        <label for="addDOB">Date Of Birth:</label>
+        <input type="text" class="addDOB form-control" id="addDOB">
+      </div>
+      <div class="form-group">
+        <label for="addExperience">Job Experience:</label>
+        <input type="text" class="addExperience form-control" id="addExperience">
+      </div>
+      <div class="form-group">
+        <label for="addDOJ">Date Of Joining:</label>
+        <input type="text" class="addDOJ form-control" id="addDOJ">
+      </div>
+      <input id="formAddButton" type="button" class="btn btn-primary" value="submit"/>
+    </div>
+  </form>
+  <div id="employeesTable">
+    <table id="tableID">
+      <thead id="theadID">
+
+      </thead>
+      <tbody id="tbodyID">
+
+      </tbody>
+    </table>
+  </div>
+
+  <!--<div class="modal fade" id="editModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form action="">
+            <h3 class="text-center text-info"><b>Edit employee details</b></h3>
+            <div class="form-group">
+              <label for="editModalID">ID:</label>
+              <input type="text" class="form-control" id="editModalID">
+            </div>
+            <div class="form-group">
+              <label for="editModalName">Name:</label>
+              <input type="text" class="form-control" id="editModalName">
+            </div>
+            <div class="form-group">
+              <label for="editModalType">Job Type:</label>
+              <input type="text" class="form-control" id="editModalType">
+            </div>
+            <div class="form-group">
+              <label for="editModalDOB">Date Of Birth:</label>
+              <input type="text" class="form-control" id="editModalDOB">
+            </div>
+            <div class="form-group">
+              <label for="editModalExperience">Job Experience:</label>
+              <input type="text" class="form-control" id="editModalExperience">
+            </div>
+            <div class="form-group">
+              <label for="editModalDOJ">Date Of Joining:</label>
+              <input type="text" class="form-control" id="editModalDOJ">
+            </div>
+            <input type="button" class="updateButton btn btn-primary" value="Update"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+  <script type="text/javascript" src="jqueryDynamicTable.js"></script>
+</body>
+</html>

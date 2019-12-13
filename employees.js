@@ -25,34 +25,44 @@ $(function(){
   $("#editForm").hide();
   $("#addEmployee").on("click", function(){
     $("#addForm").show();
+    $("#addEmployee").hide();
     //$("#editForm").hide();
   });
   $("#formAddSubmit").on("click", function(){
     $("#addForm").hide();
-
-   /* $("#displayTable").append(
-    "<tr class='border border-primary text-info text-center'>"
-    +"<td class='displayID border border-primary'>"+$('#addID').val()+"</td>"
-    +"<td class='displayName border border-primary'>"+$('#addName').val()+"</td>"
-    +"<td class='displayType border border-primary'>"+$('#addType').val()+"</td>"
-    +"<td class='displayDOB border border-primary'>"+$('#addDOB').val()+"</td>"
-    +"<td class='displayExp border border-primary'>"+$('#addExperience').val()+"</td>"
-    +"<td class='displayDOJ border border-primary'>"+$('#addDOJ').val()+"</td>"
-    +"<td class='border border-primary'><input class='editEmployee btn btn-info' type='button' value='Edit'/>&nbsp;&nbsp<input class='deleteEmployee btn btn-danger' type='button' value='Delete'/></td>"+
-    "</tr>"
-    );*/
+    $("#addEmployee").show();
 
     $("#displayTable").append(
         "<tr class='border border-primary text-info text-center'>"
-        +"<td class='displayID border border-primary'>"+$('#addModalID').val()+"</td>"
-        +"<td class='displayName border border-primary'>"+$('#addModalName').val()+"</td>"
-        +"<td class='displayType border border-primary'>"+$('#addModalType').val()+"</td>"
-        +"<td class='displayDOB border border-primary'>"+$('#addModalDOB').val()+"</td>"
-        +"<td class='displayExp border border-primary'>"+$('#addModalExperience').val()+"</td>"
-        +"<td class='displayDOJ border border-primary'>"+$('#addModalDOJ').val()+"</td>"
-        +"<td class='border border-primary'><input class='editEmployee btn btn-info' type='button' value='Edit'/>&nbsp;&nbsp<input class='deleteEmployee btn btn-danger' type='button' value='Delete'/></td>"+
-        "</tr>"
-        );
+        +"<td class='displayID border border-primary'>"+$('#addID').val()+"</td>"
+        +"<td class='displayName border border-primary'>"+$('#addName').val()+"</td>"
+        +"<td class='displayType border border-primary'>"+$('#addType').val()+"</td>"
+        +"<td class='displayDOB border border-primary'>"+$('#addDOB').val()+"</td>"
+        +"<td class='displayExp border border-primary'>"+$('#addExperience').val()+"</td>"
+        +"<td class='displayDOJ border border-primary'>"+$('#addDOJ').val()+"</td>"
+        +"<td class='border border-primary'><input class='editEmployee btn btn-info' type='button' data-toggle='modal' data-target='#editModal' value='Edit'/>&nbsp;&nbsp<input class='deleteEmployee btn btn-danger' type='button' value='Delete'/></td>"
+        +"</tr>"
+    );
+     $(".deleteEmployee").on("click", function(){
+         $(this).parents("tr").remove();
+     });
+     $(".editEmployee").on("click", function(){
+         var result = $(this).closest("tr");
+         var editID = result.find(".displayID").text();
+         var editName = result.find(".displayName").text();
+         var editType = result.find(".displayType").text();
+         var editDOB = result.find(".displayDOB").text();
+         var editExp = result.find(".displayExp").text();
+         var editDOJ = result.find(".displayDOJ").text();
+         //alert(editID+"\n"+editName+"\n"+editType+"\n"+editDOB+"\n"+editExp+"\n"+editDOJ);
+
+         $("#editModalID").val(editID);
+         $("#editModalName").val(editName);
+         $("#editModalType").val(editType);
+         $("#editModalDOB").val(editDOB);
+         $("#editModalExperience").val(editExp);
+         $("#editModalDOJ").val(editDOJ);
+     });
   });
 
 
@@ -64,7 +74,7 @@ $(function(){
     var editDOB = result.find(".displayDOB").text();
     var editExp = result.find(".displayExp").text();
     var editDOJ = result.find(".displayDOJ").text();
-    alert(editID+"\n"+editName+"\n"+editType+"\n"+editDOB+"\n"+editExp+"\n"+editDOJ);
+    //alert(editID+"\n"+editName+"\n"+editType+"\n"+editDOB+"\n"+editExp+"\n"+editDOJ);
 
     $("#editModalID").val(editID);
     $("#editModalName").val(editName);
@@ -75,7 +85,31 @@ $(function(){
 
   });
 
-  $("#editSumbit").on("click", function(){
+  $(".editSumbit").on("click", function(){
+    //$("#editModal").hide();
+     var afterEditID = $("#editModalID").val();
+     var afterEditName = $("#editModalName").val();
+     var afterEditType = $("#editModalType").val();
+     var afterEditDOB = $("#editModalDOB").val();
+     var afterEditExperience = $("#editModalExperience").val();
+     var afterEditDOJ = $("#editModalDOJ").val();
+     alert(afterEditID+"\n"+afterEditName+"\n"+afterEditType+"\n"+afterEditDOB+"\n"+afterEditExperience+"\n"+afterEditDOJ);
+
+    /* var afterUpdate = $(this).parents("tr").append(
+        "<td>"+afterEditID+"</td>"
+        +"<td>"+afterEditName+"</td>"
+        +"<td>"+afterEditType+"</td>"
+        +"<td>"+afterEditDOB+"</td>"
+        +"<td>"+afterEditExperience+"</td>"
+        +"<td>"+afterEditDOJ+"</td>"
+     );
+    $("#displayTable").append(afterUpdate);
+    */
+    var afterUpdate = $(this).closest("tr");
+    // afterUpdate.$(".displayID").val(afterEditID);
+    //afterUpdate.find(".displayID").text(afterEditID);
+    //afterUpdate.siblings('td.displayID').text(afterEditID);
+
     $("#editForm").hide();
   });
   $("#editCancelSumbit").on("click", function(){
@@ -83,7 +117,5 @@ $(function(){
   });
   $(".deleteEmployee").on("click", function(){
     $(this).parents("tr").remove();
-    $("#editForm").hide();
-    $("#addForm").hide();
   });
 });
