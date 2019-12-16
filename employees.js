@@ -11,7 +11,7 @@ xmlhttp.onreadystatechange = function() {
           tableRow += "<td class='displayDOB border border-primary'>"+myObj.Employees[j].dateOfBirth+"</td>";
           tableRow += "<td class='displayExp border border-primary'>"+myObj.Employees[j].jobExperience+"</td>";
           tableRow += "<td class='displayDOJ border border-primary'>"+myObj.Employees[j].dateOFJoining+"</td>";
-          tableRow += "<td class='border border-primary'><input class='editEmployee btn btn-info' type='button' data-toggle='modal' data-target='#editModal' value='Edit'/>&nbsp;&nbsp<input class='deleteEmployee btn btn-danger' type='button' value='Delete'/></td>";
+          tableRow += "<td class='border border-primary'><button class='editEmployee btn btn-info' type='button' data-toggle='modal' data-target='#editModal'><i class='material-icons'>&#xe3c9;</i></button>&nbsp;&nbsp<button class='deleteEmployee btn btn-danger' type='button'><i class='fa fa-trash''></i></button></td>";
       document.getElementById(j).innerHTML = tableRow;
     }
     var res = JSON.parse(this.responseText);
@@ -23,14 +23,17 @@ xmlhttp.send();
 $(function(){
   $("#addForm").hide();
   $("#editForm").hide();
+
   $("#addEmployee").on("click", function(){
     $("#addForm").show();
     $("#addEmployee").hide();
+    $("#displayTable").toggle();
     //$("#editForm").hide();
   });
   $("#formAddSubmit").on("click", function(){
     $("#addForm").hide();
     $("#addEmployee").show();
+    $("#displayTable").toggle();
 
     $("#displayTable").append(
         "<tr class='border border-primary text-info text-center'>"
@@ -40,7 +43,7 @@ $(function(){
         +"<td class='displayDOB border border-primary'>"+$('#addDOB').val()+"</td>"
         +"<td class='displayExp border border-primary'>"+$('#addExperience').val()+"</td>"
         +"<td class='displayDOJ border border-primary'>"+$('#addDOJ').val()+"</td>"
-        +"<td class='border border-primary'><input class='editEmployee btn btn-info' type='button' data-toggle='modal' data-target='#editModal' value='Edit'/>&nbsp;&nbsp<input class='deleteEmployee btn btn-danger' type='button' value='Delete'/></td>"
+        +"<td class='border border-primary'><button class='editEmployee btn btn-info' type='button' data-toggle='modal' data-target='#editModal'><i class='material-icons'>&#xe3c9;</i></button>&nbsp;&nbsp<button class='deleteEmployee btn btn-danger' type='button'><i class='fa fa-trash''></i></button></td>"
         +"</tr>"
     );
      $(".deleteEmployee").on("click", function(){

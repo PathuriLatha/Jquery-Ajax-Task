@@ -1,105 +1,116 @@
 <!DOCTYPE html>
 
 	<head>
-		<title>JSON Practice</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<title>CRUD operations with Jquery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">\
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>
 
 	<body onload="">
-  <h1 class="text-center text-danger"><b>Employee Details</b></h1>
-  <input id="addEmployee" class="btn btn-success btn-block" type="button" value="Add Employee"/>
-  <div class="container">
-    <form id="addForm">
-      <h3 class="text-center text-info"><b>Adding employee details</b></h3>
-      <div class="form-group">
-        <label for="addID">ID:</label>
-        <input type="text" class="form-control" id="addID">
+    <div class="container alert-secondary border border-info rounded">
+      <h1 class="text-center text-danger"><b>Employee Details</b></h1>
+        <form id="addForm" class="border border-info rounded bg-white">
+          <h4 class="text-center text-info"><b>Adding employee details</b></h4>
+          <div class="form-group">
+            <label for="addID" class="text-secondary">ID</label>
+            <input type="text" class="form-control alert-secondary" id="addID" placeholder="Enter employee Id">
+          </div>
+          <div class="form-group">
+            <label for="addName" class="text-secondary">Name</label>
+            <input type="text" class="form-control alert-secondary" id="addName" placeholder="Enter Name">
+          </div>
+          <div class="form-group">
+            <label for="addType" class="text-secondary">Job Type</label>
+            <input type="text" class="form-control alert-secondary" id="addType" placeholder="Enter Job Type">
+          </div>
+          <div class="form-group">
+            <label for="addDOB" class="text-secondary">Date Of Birth</label>
+            <input type="text" class="form-control alert-secondary" id="addDOB" placeholder="Enter Date of birth">
+          </div>
+          <div class="form-group">
+            <label for="addExperience"  class="text-secondary">Job Experience</label>
+            <input type="text" class="form-control alert-secondary" id="addExperience" placeholder="Enter Job experience">
+          </div>
+          <div class="form-group">
+            <label for="addDOJ" class="text-secondary">Date Of Joining</label>
+            <input type="text" class="form-control alert-secondary" id="addDOJ" placeholder="Enter Date of joining">
+          </div>
+          <input id="formAddSubmit" type="button" class="btn btn-info btn-block" value="submit"/>
+        </form>
+      <div class="text-center">
+        <button id="addEmployee" class="btn btn-success row justify-content-md-center" type="button"><i class="material-icons">&#xe7fe; </i>&nbsp; &nbsp;Add Employee</button><br>
       </div>
-      <div class="form-group">
-        <label for="addName">Name:</label>
-        <input type="text" class="form-control" id="addName">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <table id="displayTable" class="table border rounded table-md table-hover bg-white" align="center">
+              <tr class="border bg-primary rounded text-white text-center">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>DOB</th>
+                <th>Experience</th>
+                <th>DOJ</th>
+                <th>Action</th>
+              </tr>
+              <tr id="0" class="border border-primary text-info text-center" ></tr>
+              <tr id="1" class="border border-primary text-info text-center" ></tr>
+              <tr id="2" class="border border-primary text-info text-center" ></tr>
+              <tr id="3" class="border border-primary text-info text-center" ></tr>
+              <tr id="4" class="border border-primary text-info text-center" ></tr>
+              <tr id="5" class="border border-primary text-info text-center" ></tr>
+              <tr id="6" class="border border-primary text-info text-center" ></tr>
+              <tr id="insertRow" class="border border-primary text-info text-center"></tr>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="addType">Job Type:</label>
-        <input type="text" class="form-control" id="addType">
-      </div>
-      <div class="form-group">
-        <label for="addDOB">Date Of Birth:</label>
-        <input type="text" class="form-control" id="addDOB">
-      </div>
-      <div class="form-group">
-        <label for="addExperience">Job Experience:</label>
-        <input type="text" class="form-control" id="addExperience">
-      </div>
-      <div class="form-group">
-        <label for="addDOJ">Date Of Joining:</label>
-        <input type="text" class="form-control" id="addDOJ">
-      </div>
-      <input id="formAddSubmit" type="button" class="btn btn-primary" value="submit"/>
-    </form>
-  </div>
 
-		<table id="displayTable" class="table border">
-			<tr class="border bg-primary text-white text-center">
-				<th>ID</th>
-				<th>Name</th>
-				<th>Type</th>
-				<th>DOB</th>
-				<th>Experience</th>
-				<th>DOJ</th>
-        <th>Action</th>
-			</tr>
-
-      <tr id="0" class="border border-primary text-info text-center" ></tr>
-      <tr id="1" class="border border-primary text-info text-center" ></tr>
-      <tr id="2" class="border border-primary text-info text-center" ></tr>
-      <tr id="3" class="border border-primary text-info text-center" ></tr>
-      <tr id="4" class="border border-primary text-info text-center" ></tr>
-      <tr id="5" class="border border-primary text-info text-center" ></tr>
-      <tr id="6" class="border border-primary text-info text-center" ></tr>
-      <tr id="inertRow" class="border border-primary text-info text-center"></tr>
-		</table>
-
-   <div class="modal fade" id="editModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <form action="">
-            <h3 class="text-center text-info"><b>Edit employee details</b></h3>
-            <div class="form-group">
-              <label for="editModalID">ID:</label>
-              <input type="text" class="form-control" id="editModalID">
+      <div class="modal fade" id="editModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <form action="">
+                <h4 class="text-center text-info"><b>Edit employee details</b></h4>
+                <div class="form-group">
+                  <label for="editModalID">ID:</label>
+                  <input type="text" class="form-control" id="editModalID">
+                </div>
+                <div class="form-group">
+                  <label for="editModalName">Name:</label>
+                  <input type="text" class="form-control" id="editModalName">
+                </div>
+                <div class="form-group">
+                  <label for="editModalType">Job Type:</label>
+                  <input type="text" class="form-control" id="editModalType">
+                </div>
+                <div class="form-group">
+                  <label for="editModalDOB">Date Of Birth:</label>
+                  <input type="text" class="form-control" id="editModalDOB">
+                </div>
+                <div class="form-group">
+                  <label for="editModalExperience">Job Experience:</label>
+                  <input type="text" class="form-control" id="editModalExperience">
+                </div>
+                <div class="form-group">
+                  <label for="editModalDOJ">Date Of Joining:</label>
+                  <input type="text" class="form-control" id="editModalDOJ">
+                </div>
+                <input type="button" class="editSumbit btn btn-primary" value="Update"/>
+              </form>
             </div>
-            <div class="form-group">
-              <label for="editModalName">Name:</label>
-              <input type="text" class="form-control" id="editModalName">
-            </div>
-            <div class="form-group">
-              <label for="editModalType">Job Type:</label>
-              <input type="text" class="form-control" id="editModalType">
-            </div>
-            <div class="form-group">
-              <label for="editModalDOB">Date Of Birth:</label>
-              <input type="text" class="form-control" id="editModalDOB">
-            </div>
-            <div class="form-group">
-              <label for="editModalExperience">Job Experience:</label>
-              <input type="text" class="form-control" id="editModalExperience">
-            </div>
-            <div class="form-group">
-              <label for="editModalDOJ">Date Of Joining:</label>
-              <input type="text" class="form-control" id="editModalDOJ">
-            </div>
-            <input type="button" class="editSumbit btn btn-primary" value="Update"/>
-          </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-		<script type="text/javascript" src="employees.js"></script>
+
+    <script type="text/javascript" src="employees.js"></script>
 	</body>
 
 </html>
