@@ -1,0 +1,40 @@
+{
+  "Employees" : [
+    {
+      "empId":"1001",
+      "empName":"Latha",
+      "jobType":"Developer",
+      "dateOfBirth":"16-03-1996"
+    },
+    {
+      "empId":"1002",
+      "empName":"Rama",
+      "jobType":"Testing",
+      "dateOfBirth":"03-06-1996"
+    },
+    {
+      "empId":"1003",
+      "empName":"Shirisha",
+      "jobType":"Teaching",
+      "dateOfBirth":"04-05-1992"
+    },
+    {
+      "empId":"1004",
+      "empName":"Srivani",
+      "jobType":"Financial-Accounting",
+      "dateOfBirth":"26-10-1993"
+    },
+    {
+      "empId":"1005",
+      "empName":"Lasya",
+      "jobType":"UI-Developer",
+      "dateOfBirth":"20-06-1995"
+    },
+    {
+      "empId":"1006",
+      "empName":"Bhargavi",
+      "jobType":"Full-Stack-Developer",
+      "dateOfBirth":"05-07-1994"
+    }
+  ]
+}

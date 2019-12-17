@@ -98,6 +98,8 @@ $(function(){
      var afterEditDOJ = $("#editModalDOJ").val();
      alert(afterEditID+"\n"+afterEditName+"\n"+afterEditType+"\n"+afterEditDOB+"\n"+afterEditExperience+"\n"+afterEditDOJ);
 
+     //alert($(this).parent().parent().find("td:first-child").text(afterEditID));
+     // $(this).parent("tr").find("td[0]").text(afterEditID);
     /* var afterUpdate = $(this).parents("tr").append(
         "<td>"+afterEditID+"</td>"
         +"<td>"+afterEditName+"</td>"
@@ -108,7 +110,7 @@ $(function(){
      );
     $("#displayTable").append(afterUpdate);
     */
-    var afterUpdate = $(this).closest("tr");
+
     // afterUpdate.$(".displayID").val(afterEditID);
     //afterUpdate.find(".displayID").text(afterEditID);
     //afterUpdate.siblings('td.displayID').text(afterEditID);

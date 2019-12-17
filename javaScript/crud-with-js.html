@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>crud with javascript</title>
+    <link rel="stylesheet" href="crud-styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body onload="disableFunction();viewEmpFunction()">
+  <div class="container">
+    <h2 class="text-center text-primary"><b>Employee details</b></h2>
+    <input type="button" id="addEmp" class="btn btn-success" value="Add Employee" onclick="enableFunction( )"><br>
+    <div id="emp"></div>
+    <form id="addForm">
+      <table id="insert" >
+        <tr>
+          <td colspan='4'><h4 class="text-center text-info"><b>Enter Employee Details</b></h4></td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td><input class='form-control' type='text' id='name' onchange="nameValidation( )">
+            <span style="color:red" id="sname"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input class='form-control' type='password' id='password' onchange="passwordValidation( )">
+            <span style="color:red" id="spassword"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input class='form-control' type='text' id='email' onchange="emailValidation( )">
+            <span style="color:red" id="semail"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Mobile Number</td>
+          <td><input class='form-control' type='text' id='mblno' onchange="mobileValidation( )">
+            <span style="color:red" id="smblno"></span>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type='button' value='Add' id="form-submit" class="btn btn-success" onclick="return allValidate( )">&nbsp;<input type='button' id="form-cancel" value='Cancel' class="btn btn-danger" onclick='disableFunction( )'>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="ename" onchange="enameVaildation()">
+                <span style="color:red" id="editname"></span>
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="epassword" onchange="epasswordVaildation()">
+                <span style="color:red" id="editpassword"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="eemail" onchange="eemailVaildation()">
+                <span style="color:red" id="editemail"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Mobile:</label>
+                <input type="text" class="form-control" id="emblno" onchange="emobileVaildation()">
+                <span style="color:red" id="editmblno"></span>
+              </div>
+              <input type="button" class="btn btn-primary" value="Update" onclick="editAllValidate()"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script type="text/javascript" src="crud-validations.js"></script>
+</body>
+</html>
